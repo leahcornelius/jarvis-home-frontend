@@ -28,6 +28,12 @@
                     <br>        
                     <span id='next-button'></span>
                 </div>
+                <div class="notification is-warning">
+                        <button class="delete"></button>
+                        <strong>There may be a delay</strong> beetween pairing and your deviceing being
+                        ready as the shipped devices have outdated firmware due to the time differental beetween
+                        production and delivery. Thank you for your patience. 
+                </div>
             </div>
         </section>
   <script>
@@ -39,6 +45,14 @@
                 document.getElementById('next-button').innerHTML = '<button class="button is-primary is-fullwidth" title="Disabled button" >Next</button>'
             }
         }
+        document.addEventListener('DOMContentLoaded', () => {
+            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+                $notification = $delete.parentNode;
+                $delete.addEventListener('click', () => {
+                    $notification.parentNode.removeChild($notification);
+                });
+            });
+        });
   </script>
   </body>
 </html>

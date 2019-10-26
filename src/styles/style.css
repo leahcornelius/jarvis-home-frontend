@@ -1,0 +1,40 @@
+:root {
+    --secondary: 49,49,49;
+    --light: 140,140,140;
+    --danger: 222,36,92;
+    --warning: 236,179,48;
+    --primary: 0,146,237;
+    --grey: 204,211,220;
+    --vlight: 247,247,247;
+    --green: 46,181,125;
+
+    --sidebar: 27,40,58;
+
+    --pinterest: 201,38,25;
+    --facebook: 55,101,163;
+    --twitter: 23,163,243;
+    --instagram: 221,42,123;
+    --snapchat: 255,252,0;
+    --telegram: 60,171,227;
+    --linkedin: 0,115,176;
+    --etsy: 245,100,0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.login-box{
+    box-shadow: 0px 0px 10px 3px rgb(var(--green),0.3);
+    padding: 50px;
+    background-color: #fff;
+    width: 50vw;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body{
+    background-color: rgb(var(--green),0.3);
+    height: 100vh;
+}

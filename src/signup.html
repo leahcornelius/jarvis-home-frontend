@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Jarvis - Sign Up</title>
+        <title>Jarvis - Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
         <link rel="stylesheet" href="styles/style.css">
@@ -9,30 +9,75 @@
     </head>
     <body class="is-light">
         <section class="section">
-            <div class="container">
+            <div class="container" id="register">
                 <div class="login-box">
                     <h1 class="title">
-                        Sign Up
+                        Register
                     </h1>
-                   
-                    <div class="control" style="margin-bottom: 10px;">
-                        <input class="input" type="email" placeholder="Email">
-                    </div>
-                    <div class="control" style="margin-bottom: 10px;">
-                        <input class="input" type="password" placeholder="Password">
-                    </div>
-                    <div class="control" style="margin-bottom: 10px;">
-                        <input class="input" type="password" placeholder="Renter Password">
-                    </div>
-                    <div class="control" style="margin-bottom: 10px;">
-                        <input class="input" type="phone" placeholder="Phone">
-                    </div>
-                    <br>
-                     <button class="button is-primary" style="width: 100%;">Sign Up</button>
-                    
-            </div>
+                    <div style="height: 10px;"></div>
 
+                    <h2 class="subtitle" style="margin-bottom: 0px;" id="subtitle"></h2>
+                    <div style="display: flex; margin: 10px; margin-bottom: 20px;">
+                        <div id="step1block" style="width: 33.3%; margin: 10px; height: 5px; background-color: #ccc;"></div>
+                        <div id="step2block" style="width: 33.3%; margin: 10px; height: 5px; background-color: #ccc;"></div>
+                        <div id="step3block" style="width: 33.3%; margin: 10px; height: 5px; background-color: #ccc;"></div>
+
+                    </div>
+
+                    <div id="step1" class="hidden">
+                        <div class="control" style="margin-bottom: 10px;">
+                            <input class="input" type="email" placeholder="Email">
+                        </div>
+                    </div>
+
+
+                    <div id="step2" class="hidden">
+                        <div class="control" style="margin-bottom: 10px;">
+                            <input class="input" type="password" placeholder="Enter a password" oninput="if(this.value.length > 0){document.getElementById('passwordagain').style.display='block';}">
+                            <input class="input hidden" type="password" placeholder="Re-enter your password" id="passwordagain" style="margin-top: 10px;">
+                        </div>
+                    </div>
+
+                    <div id="step3" class="hidden">
+                        <div class="control" style="margin-bottom: 10px;">
+                            <div style="padding: 12px;" class="notification is-success">
+                                We sent a code to your email address, please enter it to verify your account.
+                            </div>
+                            <input class="input" type="text" placeholder="Enter verification code">
+                        </div>
+                    </div>
+
+
+                    <button id="next-btn" class="button is-primary" style="width: 100%;" onclick="nextStep()">Next</button>
+
+                </div>
             </div>
         </section>
+
+        <script>
+            var step = 1;
+            document.getElementById('step1').style.display = 'block';
+            document.getElementById('step1block').style.backgroundColor = 'rgb(var(--primary))';
+            document.getElementById('subtitle').innerHTML = 'Step 1. Introduce yourself';
+
+            function nextStep(){
+                if(step == 1){
+                    //Step 2
+                    step = 2;
+                    document.getElementById('step1').style.display = 'none';
+                    document.getElementById('step2').style.display = 'block';
+                    document.getElementById('step2block').style.backgroundColor = 'rgb(var(--primary))';
+                    document.getElementById('subtitle').innerHTML = 'Step 2. Set a password';
+                }
+                else if(step == 2){
+                    step = 3;    
+                    document.getElementById('step2').style.display = 'none';
+                    document.getElementById('step3').style.display = 'block';
+                    document.getElementById('step3block').style.backgroundColor = 'rgb(var(--primary))';
+                    document.getElementById('subtitle').innerHTML = 'Step 3. Verify your email';
+                    document.getElementById('next-btn').innerHTML = 'Finish';
+                }
+            }
+        </script>
     </body>
 </html> 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pair Your Device</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    </head>
+    <body>
+        <section class="section">
+            <div class="container">
+                <h1 class="title has-text-centered">
+                    Pair Your device
+                </h1>
+                <br>
+                <p class="subtitle has-text-centered">
+                    Connect your Jarvis device with jarvis home to get started!
+                </p>
+                <div class="box">
+                    <div class="buttons">
+                        <div style="margin-left: auto; margin-right: auto;">
+                            <button onclick="setDisable(1)" style="height: 250px;width: 150px" class="button is-rounded has-text-centered">Jarvis Screen</button>
+                            <button onclick="setDisable(1)" style="height: 250px;width: 150px" class="button is-rounded has-text-centered">Jarvis Mirror</button>
+                            <button onclick="setDisable(1)" style="height: 250px;width: 150px" class="button is-rounded has-text-centered">Jarvis Mini</button>
+                        </div>
+                    </div>
+                    <br>        
+                    <span id='next-button'></span>
+                </div>
+            </div>
+        </section>
+  <script>
+        function setDisable(mode) {
+            if(mode=0) {
+                document.getElementById('next-button').innerHTML = '<button class="button is-primary is-fullwidth" title="Disabled button" disabled>Next</button>'
+            }
+            if(mode=1) {
+                document.getElementById('next-button').innerHTML = '<button class="button is-primary is-fullwidth" title="Disabled button" >Next</button>'
+            }
+        }
+  </script>
+  </body>
+</html>
